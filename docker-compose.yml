@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: jazz-aero-db
+    environment:
+      POSTGRES_USER: jazz_user
+      POSTGRES_PASSWORD: jazz_secure_pass_2024
+      POSTGRES_DB: jazz_aero_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - jazz-network
+
+  # Node.js Backend
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: jazz-aero-backend
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://jazz_user:jazz_secure_pass_2024@postgres:5432/jazz_aero_db
+      JWT_SECRET: your_jwt_secret_key_change_in_production
+      PORT: 5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - jazz-network
+    volumes:
+      - ./server:/app/server
+
+  # React Frontend
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: jazz-aero-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+    depends_on:
+      - backend
+    networks:
+      - jazz-network
+    volumes:
+      - ./client:/app/client
+
+volumes:
+  postgres_data:
+
+networks:
+  jazz-network:
+    driver: bridge
