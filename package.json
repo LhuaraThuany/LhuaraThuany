@@ -1,0 +1,24 @@
+{
+  "name": "jazz-aero-intelligence",
+  "version": "1.0.0",
+  "description": "Plataforma de Inteligência Comercial para Setor Aeronáutico",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "node server/index.js",
+    "docker-build": "docker build -t jazz-aero .",
+    "docker-run": "docker run -p 5000:5000 jazz-aero"
+  },
+  "keywords": [
+    "CRM",
+    "Aviação",
+    "Inteligência Comercial",
+    "Prospecção",
+    "Pipeline"
+  ],
+  "author": "LhuaraThuany",
+  "license": "MIT"
+}
