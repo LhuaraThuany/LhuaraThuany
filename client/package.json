@@ -1,0 +1,30 @@
+{
+  "name": "jazz-aero-client",
+  "version": "1.0.0",
+  "description": "Frontend da Plataforma JAZZ Aero Intelligence",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "axios": "^1.6.2",
+    "chart.js": "^4.4.0",
+    "react-chartjs-2": "^5.2.0",
+    "lucide-react": "^0.292.0",
+    "date-fns": "^2.30.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": ["react-app"]
+  },
+  "browserslist": ["last 2 versions", ">= 1%"],
+  "devDependencies": {
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.3.6"
+  }
+}
