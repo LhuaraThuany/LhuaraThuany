@@ -163,10 +163,4 @@ APIs (WhatsApp, IA, etc)
 
 ---
 
-## 📞 Suporte
 
-Para dúvidas ou sugestões: `contato@jazzaero.com.br`
-
----
-
-**Criado com ❤️ para a aviação brasileira**
